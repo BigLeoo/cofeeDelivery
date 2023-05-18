@@ -1,8 +1,10 @@
+import { Addres } from './components/Addres/indes'
+
 export function Cart() {
   return (
     <div>
       <div>
-        <div>Endereço de Entrega</div>
+        <Addres />
         <div>Pagamento</div>
       </div>
 
