@@ -1,3 +1,12 @@
 export function Cart() {
-  return <h1>Cart</h1>
+  return (
+    <div>
+      <div>
+        <div>Endereço de Entrega</div>
+        <div>Pagamento</div>
+      </div>
+
+      <div>Cafés Selecionados</div>
+    </div>
+  )
 }

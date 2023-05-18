@@ -3,7 +3,7 @@ import {
   BuyContainer,
   AmountContainer,
   CoffeeCharacteristics,
-  CoffeeCharacteristicsContainer,
+  // CoffeeCharacteristicsContainer,
   CoffeeContainer,
   CoffeeDescription,
   CoffeeImg,
@@ -20,9 +20,9 @@ export function Coffe() {
     <CoffeeContainer>
       <CoffeeImg src={ExpressoTradicionalImg} alt="" />
 
-      <CoffeeCharacteristicsContainer>
-        <CoffeeCharacteristics>Tradicional</CoffeeCharacteristics>
-      </CoffeeCharacteristicsContainer>
+      {/* <CoffeeCharacteristicsContainer> */}
+      <CoffeeCharacteristics>Tradicional</CoffeeCharacteristics>
+      {/* </CoffeeCharacteristicsContainer> */}
 
       <CoffeeName>Expresso Tradicional</CoffeeName>
       <CoffeeDescription>

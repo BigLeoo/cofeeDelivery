@@ -7,6 +7,23 @@ export function CoffeMenu() {
       <HeaderMenu>Nossos Cafés</HeaderMenu>
       <Menu>
         <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
+        <Coffe />
       </Menu>
     </Container>
   )

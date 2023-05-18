@@ -12,25 +12,37 @@ export const CoffeeContainer = styled.div`
 `
 
 export const CoffeeImg = styled.img`
-  margin: -1.25rem;
+  margin-top: -1.25rem;
   width: 7.5rem;
   height: 7.5rem;
 `
-export const CoffeeCharacteristicsContainer = styled.div`
+// export const CoffeeCharacteristicsContainer = styled.div`
+//   background: ${(props) => props.theme['yellow-light']};
+//   color: ${(props) => props.theme['yellow-dark']};
+
+//   margin-top: 0.75rem;
+//   height: 1.313rem;
+//   padding: 0.25rem 0.5rem;
+//   border-radius: 100px;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `
+
+export const CoffeeCharacteristics = styled.p`
   background: ${(props) => props.theme['yellow-light']};
   color: ${(props) => props.theme['yellow-dark']};
+
   margin-top: 0.75rem;
-  width: 5.063rem;
   height: 1.313rem;
   padding: 0.25rem 0.5rem;
   border-radius: 100px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-`
 
-export const CoffeeCharacteristics = styled.p`
-  color: ${(props) => props.theme['yellow-dark']};
   font-family: 'Roboto';
   font-style: normal;
   font-size: 0.625rem;
@@ -43,7 +55,9 @@ export const CoffeeName = styled.h2`
   font-style: normal;
   font-weight: 700;
   font-size: 1.25rem;
-  line-height: 130%;
+  line-height: 1.625rem;
+
+  margin-top: 1rem;
 `
 
 export const CoffeeDescription = styled.p`
@@ -51,8 +65,11 @@ export const CoffeeDescription = styled.p`
   font-style: normal;
   font-weight: 400;
   font-size: 0.875rem;
-  line-height: 130%;
+  line-height: 1.138rem;
   text-align: center;
+
+  width: 13.5rem;
+  margin-top: 0.5rem;
 
   color: ${(props) => props.theme['base-label']};
 `
@@ -82,6 +99,8 @@ export const Value = styled(Coin)`
   font-family: 'Baloo 2';
   font-weight: 800;
   font-size: 1.5rem;
+
+  margin-left: 0.25rem;
 `
 
 export const AmountContainer = styled.div`
@@ -125,4 +144,5 @@ export const ShoppingCartContainer = styled.div`
   background-color: ${(props) => props.theme['purple-dark']};
 
   color: ${(props) => props.theme['base-card']};
+  cursor: pointer;
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Background from '../../../../assets/Background.svg'
 
 export const MainContainer = styled.main`
   padding: 5.875rem 10rem 5.875rem 10rem;
@@ -7,6 +8,8 @@ export const MainContainer = styled.main`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background-image: url(${Background});
 `
 
 export const ArticleIntro = styled.article`

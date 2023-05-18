@@ -18,4 +18,6 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  gap: 2.5rem 2rem;
 `
