@@ -8,6 +8,8 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 2rem 10rem 2rem 10rem;
   width: 90rem;
+  /* width: 100%;
+  max-width: 90rem; */
 `
 
 export const DivContainer = styled.div`
