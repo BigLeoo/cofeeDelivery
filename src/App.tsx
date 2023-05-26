@@ -3,12 +3,15 @@ import { Router } from './Router'
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/themes/default'
 import { GlobalStyle } from './styles/global'
+import { CoffeesContextProvider } from './context/Coffes'
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <Router />
+        <CoffeesContextProvider>
+          <Router />
+        </CoffeesContextProvider>
       </BrowserRouter>
       <GlobalStyle />
     </ThemeProvider>

@@ -14,8 +14,12 @@ import {
   ShoppingCartContainer,
 } from './style'
 import ExpressoTradicionalImg from '../../../../../../assets/coffees/Type=Expresso.svg'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../../../../../context/Coffes'
 
 export function Coffe() {
+  const { coffees } = useContext(CoffeesContext)
+  console.log(coffees)
   return (
     <CoffeeContainer>
       <CoffeeImg src={ExpressoTradicionalImg} alt="" />
