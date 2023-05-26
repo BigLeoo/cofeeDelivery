@@ -85,7 +85,7 @@ export const BuyContainer = styled.div`
   height: 2.375rem;
 `
 
-export const Coin = styled.p`
+export const Coin = styled.div`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;

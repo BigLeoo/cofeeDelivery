@@ -13,29 +13,39 @@ import {
   Amount,
   ShoppingCartContainer,
 } from './style'
-import ExpressoTradicionalImg from '../../../../../../assets/coffees/Type=Expresso.svg'
-import { useContext } from 'react'
-import { CoffeesContext } from '../../../../../../context/Coffes'
+// import ExpressoTradicionalImg from '../../../../../../assets/coffees/Type=Expresso.svg'
 
-export function Coffe() {
-  const { coffees } = useContext(CoffeesContext)
-  console.log(coffees)
+interface CoffeeProps {
+  coffeImg: string
+  coffeCharacteristics: string[]
+  coffeeName: string
+  coffeDescription: string
+  value: number
+  amount: number
+}
+
+export function Coffe({
+  coffeImg,
+  coffeCharacteristics,
+  coffeeName,
+  coffeDescription,
+  value,
+  amount,
+}: CoffeeProps) {
   return (
     <CoffeeContainer>
-      <CoffeeImg src={ExpressoTradicionalImg} alt="" />
+      <CoffeeImg src={coffeImg} alt="" />
 
       {/* <CoffeeCharacteristicsContainer> */}
       <CoffeeCharacteristics>Tradicional</CoffeeCharacteristics>
       {/* </CoffeeCharacteristicsContainer> */}
 
-      <CoffeeName>Expresso Tradicional</CoffeeName>
-      <CoffeeDescription>
-        O tradicional café feito com água quente e grãos moídos
-      </CoffeeDescription>
+      <CoffeeName>{coffeeName}</CoffeeName>
+      <CoffeeDescription>{coffeDescription}</CoffeeDescription>
 
       <BuyContainer>
         <Coin>
-          R$ <Value>9,90</Value>
+          R$ <Value>{(value / 100).toFixed(2)}</Value>
         </Coin>
         <AmountContainer>
           <Minus

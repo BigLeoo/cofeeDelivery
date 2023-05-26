@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useEffect, useState } from 'react'
+import image from '../assets/coffees/Type=Americano.svg'
 
 interface Coffee {
   coffeImg: string
@@ -21,7 +22,7 @@ export const CoffeesContext = createContext({} as CoffeesContextType)
 
 const coffeMenu: Coffee[] = [
   {
-    coffeImg: '../assets/coffees/Type=Expresso.svg',
+    coffeImg: require('../../../../../../assets/coffees/Type=Expresso.svg'),
     coffeCharacteristics: ['TRADICIONAL'],
     coffeeName: 'Expresso Tradicional',
     coffeDescription: 'O tradicional café feito com água quente e grãos moídos',
@@ -147,7 +148,7 @@ export const CoffeesContextProvider = ({
 }: CoffeesContextProviderProps) => {
   const [coffees, setCoffees] = useState<Coffee[]>([])
 
-  useEffect(() => setCoffees((coffees) => [...coffees, ...coffeMenu]))
+  useEffect(() => setCoffees([...coffeMenu]), [])
 
   return (
     <CoffeesContext.Provider value={{ coffees }}>
