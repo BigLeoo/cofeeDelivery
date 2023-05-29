@@ -3,7 +3,6 @@ import {
   BuyContainer,
   AmountContainer,
   CoffeeCharacteristics,
-  // CoffeeCharacteristicsContainer,
   CoffeeContainer,
   CoffeeDescription,
   CoffeeImg,
@@ -12,8 +11,10 @@ import {
   Value,
   Amount,
   ShoppingCartContainer,
+  CoffeeCharacteristicsContainer,
 } from './style'
-// import ExpressoTradicionalImg from '../../../../../../assets/coffees/Type=Expresso.svg'
+
+import { v4 as uuidv4 } from 'uuid'
 
 interface CoffeeProps {
   coffeImg: string
@@ -32,17 +33,24 @@ export function Coffe({
   value,
   amount,
 }: CoffeeProps) {
+  let numbersOfCoffees
+
   return (
     <CoffeeContainer>
       <CoffeeImg src={coffeImg} alt="" />
-
-      {/* <CoffeeCharacteristicsContainer> */}
-      <CoffeeCharacteristics>Tradicional</CoffeeCharacteristics>
-      {/* </CoffeeCharacteristicsContainer> */}
-
+      {coffeCharacteristics.length === 1 ? (
+        <CoffeeCharacteristics>{coffeCharacteristics[0]}</CoffeeCharacteristics>
+      ) : (
+        <CoffeeCharacteristicsContainer>
+          {coffeCharacteristics.map((coffeCharacteristic) => (
+            <CoffeeCharacteristics key={uuidv4()}>
+              {coffeCharacteristic}
+            </CoffeeCharacteristics>
+          ))}
+        </CoffeeCharacteristicsContainer>
+      )}
       <CoffeeName>{coffeeName}</CoffeeName>
       <CoffeeDescription>{coffeDescription}</CoffeeDescription>
-
       <BuyContainer>
         <Coin>
           R$ <Value>{(value / 100).toFixed(2)}</Value>
