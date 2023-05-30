@@ -1,5 +1,4 @@
 import { ReactNode, createContext, useEffect, useState } from 'react'
-import image from '../assets/coffees/Type=Americano.svg'
 
 interface Coffee {
   coffeImg: string
@@ -22,7 +21,7 @@ export const CoffeesContext = createContext({} as CoffeesContextType)
 
 const coffeMenu: Coffee[] = [
   {
-    coffeImg: require('../../../../../../assets/coffees/Type=Expresso.svg'),
+    coffeImg: 'images/coffees/Type=Americano.svg',
     coffeCharacteristics: ['TRADICIONAL'],
     coffeeName: 'Expresso Tradicional',
     coffeDescription: 'O tradicional café feito com água quente e grãos moídos',
@@ -30,7 +29,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Americano.svg',
+    coffeImg: 'images/coffees/Type=Americano.svg',
     coffeCharacteristics: ['TRADICIONAL'],
     coffeeName: 'Expresso Americano',
     coffeDescription: 'Expresso diluído, menos intenso que o tradicional',
@@ -38,7 +37,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Expresso Cremoso.svg',
+    coffeImg: 'images/coffees/Type=Expresso Cremoso.svg',
     coffeCharacteristics: ['TRADICIONAL'],
     coffeeName: 'Expresso Cremoso',
     coffeDescription: 'Café expresso tradicional com espuma cremosa',
@@ -46,7 +45,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Café Gelado.svg',
+    coffeImg: 'images/coffees/Type=Café Gelado.svg',
     coffeCharacteristics: ['TRADICIONAL', 'GELADO'],
     coffeeName: 'Expresso Gelado',
     coffeDescription: 'Bebida preparada com café expresso e cubos de gelo',
@@ -54,7 +53,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Café com Leite.svg',
+    coffeImg: 'images/coffees/Type=Café com Leite.svg',
     coffeCharacteristics: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Café com Leite',
     coffeDescription:
@@ -63,7 +62,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Latte.svg',
+    coffeImg: 'images/coffees/Type=Latte.svg',
     coffeCharacteristics: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Latte',
     coffeDescription:
@@ -72,7 +71,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Capuccino.svg',
+    coffeImg: 'images/coffees/Type=Capuccino.svg',
     coffeCharacteristics: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Capuccino',
     coffeDescription:
@@ -81,7 +80,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Macchiato.svg',
+    coffeImg: 'images/coffees/Type=Macchiato.svg',
     coffeCharacteristics: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Macchiato',
     coffeDescription:
@@ -90,7 +89,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Mochaccino.svg',
+    coffeImg: 'images/coffees/Type=Mochaccino.svg',
     coffeCharacteristics: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Mocaccino',
     coffeDescription:
@@ -99,7 +98,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Chocolate Quente.svg',
+    coffeImg: 'images/coffees/Type=Chocolate Quente.svg',
     coffeCharacteristics: ['ESPECIAL', 'COM LEITE'],
     coffeeName: 'Chocolate Quente',
     coffeDescription:
@@ -108,7 +107,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Cubano.svg',
+    coffeImg: 'images/coffees/Type=Cubano.svg',
     coffeCharacteristics: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
     coffeeName: 'Cubano',
     coffeDescription:
@@ -117,7 +116,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Havaiano.svg',
+    coffeImg: 'images/coffees/Type=Havaiano.svg',
     coffeCharacteristics: ['ESPECIAL'],
     coffeeName: 'Havaiano',
     coffeDescription: 'Bebida adocicada preparada com café e leite de coco',
@@ -125,7 +124,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Árabe.svg',
+    coffeImg: 'images/coffees/Type=Árabe.svg',
     coffeCharacteristics: ['ESPECIAL'],
     coffeeName: 'Árabe',
     coffeDescription: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -133,7 +132,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: '../assets/coffees/Type=Irlandês.svg',
+    coffeImg: 'images/coffees/Type=Irlandês.svg',
     coffeCharacteristics: ['ESPECIAL', 'ALCOÓLICO'],
     coffeeName: 'Irlandês',
     coffeDescription:

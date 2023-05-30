@@ -16,19 +16,22 @@ export const CoffeeImg = styled.img`
   width: 7.5rem;
   height: 7.5rem;
 `
-// export const CoffeeCharacteristicsContainer = styled.div`
-//   background: ${(props) => props.theme['yellow-light']};
-//   color: ${(props) => props.theme['yellow-dark']};
 
-//   margin-top: 0.75rem;
-//   height: 1.313rem;
-//   padding: 0.25rem 0.5rem;
-//   border-radius: 100px;
+export const CoffeeCharacteristicsContainer = styled.div`
+  /* background: ${(props) => props.theme['yellow-light']}; */
+  color: ${(props) => props.theme['yellow-dark']};
 
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `
+  margin-top: 0.75rem;
+  height: 1.313rem;
+  /* padding: 0.25rem 0.5rem; */
+  border-radius: 100px;
+  gap: 0.25rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
 
 export const CoffeeCharacteristics = styled.p`
   background: ${(props) => props.theme['yellow-light']};

@@ -12,7 +12,6 @@ import {
   RemoveCoffe,
   RemoveText,
 } from './style'
-import coffeImage from '../../../../../assets/coffees/Type=Expresso.svg'
 import { Minus, Plus, Trash } from 'phosphor-react'
 
 export function CoffeSelected() {
@@ -20,7 +19,7 @@ export function CoffeSelected() {
     <>
       <CoffeSelectedContainer>
         <CoffeImageInfoContaine>
-          <CoffeImage src={coffeImage} />
+          <CoffeImage src={'images/coffees/Type=Expresso.svg'} />
           <CoffeInfoContainer>
             <CoffeName>Expresso Tradcional</CoffeName>
 

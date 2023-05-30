@@ -13,7 +13,7 @@ export function CoffeMenu() {
       <Menu>
         {coffees.map((coffee) => (
           <Coffe
-            key={Date.now()}
+            key={coffee.coffeeName}
             coffeImg={coffee.coffeImg}
             coffeCharacteristics={coffee.coffeCharacteristics}
             coffeeName={coffee.coffeeName}
