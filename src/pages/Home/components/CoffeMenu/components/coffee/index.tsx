@@ -15,6 +15,8 @@ import {
 } from './style'
 
 import { v4 as uuidv4 } from 'uuid'
+import { useContext, useState } from 'react'
+import { CoffeesContext } from '../../../../../../context/Coffes'
 
 interface CoffeeProps {
   coffeImg: string
@@ -33,7 +35,40 @@ export function Coffe({
   value,
   amount,
 }: CoffeeProps) {
-  let numbersOfCoffees
+  const { coffeesCart, setCoffeesCart, coffees, setCoffees } =
+    useContext(CoffeesContext)
+  const [amountOfCoffees, setAmountOfCoffees] = useState(amount)
+
+  function additionAmount() {
+    setAmountOfCoffees(amountOfCoffees + 1)
+  }
+
+  function decreaseAmount() {
+    if (!(amountOfCoffees === 0)) {
+      setAmountOfCoffees(amountOfCoffees - 1)
+    }
+  }
+
+  function addCoffeeToCart() {
+    const copyCoffes = [...coffees]
+
+    const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
+      if (coffeeObject.coffeeName === coffeeName) {
+        return { ...coffeeObject, amount: amountOfCoffees }
+      } else {
+        return coffeeObject
+      }
+    })
+
+    setCoffees(coffeAmountUpdated)
+
+    const coffeesFiltrados = coffees.filter(
+      (coffeeObject) => coffeeObject.amount > 0,
+    )
+
+    setCoffeesCart(coffeesFiltrados)
+    console.log(coffeesCart)
+  }
 
   return (
     <CoffeeContainer>
@@ -61,17 +96,24 @@ export function Coffe({
             height={'0.875rem'}
             color="#8047F8"
             cursor="pointer"
+            onClick={decreaseAmount}
           />
-          <Amount>1</Amount>
+          <Amount>{amountOfCoffees}</Amount>
           <Plus
             width={'0.875rem'}
             height={'0.875rem'}
             color="#8047F8"
             cursor={'pointer'}
+            onClick={additionAmount}
           />
         </AmountContainer>
         <ShoppingCartContainer>
-          <ShoppingCart weight="fill" width={'1.375rem'} height={'1.375rem'} />
+          <ShoppingCart
+            weight="fill"
+            width={'1.375rem'}
+            height={'1.375rem'}
+            onClick={addCoffeeToCart}
+          />
         </ShoppingCartContainer>
       </BuyContainer>
     </CoffeeContainer>

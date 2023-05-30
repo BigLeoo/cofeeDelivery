@@ -1,4 +1,11 @@
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from 'react'
 
 interface Coffee {
   coffeImg: string
@@ -8,9 +15,11 @@ interface Coffee {
   value: number
   amount: number
 }
-
 interface CoffeesContextType {
   coffees: Coffee[]
+  coffeesCart: Coffee[]
+  setCoffeesCart: Dispatch<SetStateAction<Coffee[]>>
+  setCoffees: Dispatch<SetStateAction<Coffee[]>>
 }
 
 interface CoffeesContextProviderProps {
@@ -145,12 +154,16 @@ const coffeMenu: Coffee[] = [
 export const CoffeesContextProvider = ({
   children,
 }: CoffeesContextProviderProps) => {
+  const [coffeesCart, setCoffeesCart] = useState<Coffee[]>([])
+
   const [coffees, setCoffees] = useState<Coffee[]>([])
 
   useEffect(() => setCoffees([...coffeMenu]), [])
 
   return (
-    <CoffeesContext.Provider value={{ coffees }}>
+    <CoffeesContext.Provider
+      value={{ coffees, setCoffees, coffeesCart, setCoffeesCart }}
+    >
       {children}
     </CoffeesContext.Provider>
   )
