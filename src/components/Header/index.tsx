@@ -9,37 +9,42 @@ import {
 } from './styles'
 import { useContext } from 'react'
 import { CoffeesContext } from '../../context/Coffes'
+import { NavLink } from 'react-router-dom'
 
 export const Header = () => {
   const { coffeesCart } = useContext(CoffeesContext)
 
   return (
     <HeaderContainer>
-      <img src={logo} alt="" />
+      <NavLink to="/" title="CoffeeMenu">
+        <img src={logo} alt="" />
+      </NavLink>
 
       <DivContainer>
         <ButtonContainer>
           <MapPin weight="fill" width={'1.375rem'} height={'1.375rem'} />
           Florianópolis, SC
         </ButtonContainer>
-        <IconContainer>
-          {coffeesCart.length > 0 ? (
-            <>
-              <CounterCart>{coffeesCart.length}</CounterCart>
+        <NavLink to="/cart" title="Cart">
+          <IconContainer>
+            {coffeesCart.length > 0 ? (
+              <>
+                <CounterCart>{coffeesCart.length}</CounterCart>
+                <ShoppingCart
+                  weight="fill"
+                  width={'1.375rem'}
+                  height={'1.375rem'}
+                />
+              </>
+            ) : (
               <ShoppingCart
                 weight="fill"
                 width={'1.375rem'}
                 height={'1.375rem'}
               />
-            </>
-          ) : (
-            <ShoppingCart
-              weight="fill"
-              width={'1.375rem'}
-              height={'1.375rem'}
-            />
-          )}
-        </IconContainer>
+            )}
+          </IconContainer>
+        </NavLink>
       </DivContainer>
     </HeaderContainer>
   )

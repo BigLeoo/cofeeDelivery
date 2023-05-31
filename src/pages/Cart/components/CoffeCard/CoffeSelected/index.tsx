@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from 'react'
 import {
   Amount,
   AmountNumber,
@@ -13,15 +14,55 @@ import {
   RemoveText,
 } from './style'
 import { Minus, Plus, Trash } from 'phosphor-react'
+import { CoffeesContext } from '../../../../../context/Coffes'
 
-export function CoffeSelected() {
+interface CoffeSelectedProps {
+  coffeeImg: string
+  coffeeName: string
+  amount: number
+  value: number
+}
+
+export function CoffeSelected({
+  coffeeImg,
+  coffeeName,
+  amount,
+  value,
+}: CoffeSelectedProps) {
+  const { coffeesCart, setCoffeesCart } = useContext(CoffeesContext)
+  const [amountOfCoffees, setAmountOfCoffees] = useState(amount)
+
+  function addAmount() {
+    setAmountOfCoffees(amountOfCoffees + 1)
+  }
+
+  function decreaseAmount() {
+    if (!(amountOfCoffees === 1)) {
+      setAmountOfCoffees(amountOfCoffees - 1)
+    }
+  }
+
+  useEffect(() => {
+    const copyCoffeesCart = [...coffeesCart]
+
+    const coffeeAmountCartUpdadted = copyCoffeesCart.map((coffeeObject) => {
+      if (coffeeObject.coffeeName === coffeeName) {
+        return { ...coffeeObject, amount: amountOfCoffees }
+      } else {
+        return coffeeObject
+      }
+    })
+
+    setCoffeesCart(coffeeAmountCartUpdadted)
+  }, [amountOfCoffees])
+
   return (
     <>
       <CoffeSelectedContainer>
         <CoffeImageInfoContaine>
-          <CoffeImage src={'images/coffees/Type=Expresso.svg'} />
+          <CoffeImage src={coffeeImg} />
           <CoffeInfoContainer>
-            <CoffeName>Expresso Tradcional</CoffeName>
+            <CoffeName>{coffeeName}</CoffeName>
 
             <AmountRemoveContainer>
               <Amount>
@@ -30,13 +71,15 @@ export function CoffeSelected() {
                   height={'0.875rem'}
                   color="#8047F8"
                   cursor={'pointer'}
+                  onClick={decreaseAmount}
                 />
-                <AmountNumber>1</AmountNumber>
+                <AmountNumber>{amountOfCoffees}</AmountNumber>
                 <Plus
                   width={'0.875rem'}
                   height={'0.875rem'}
                   color="#8047F8"
                   cursor={'pointer'}
+                  onClick={addAmount}
                 />
               </Amount>
               <RemoveCoffe>
@@ -47,7 +90,9 @@ export function CoffeSelected() {
           </CoffeInfoContainer>
         </CoffeImageInfoContaine>
 
-        <Price>R$ 9,90</Price>
+        <Price>
+          R$ <span>{(value / 100).toFixed(2)}</span>
+        </Price>
       </CoffeSelectedContainer>
       <Line />
     </>

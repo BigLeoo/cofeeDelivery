@@ -35,8 +35,7 @@ export function Coffe({
   value,
   amount,
 }: CoffeeProps) {
-  const { coffeesCart, setCoffeesCart, coffees, setCoffees } =
-    useContext(CoffeesContext)
+  const { setCoffeesCart, coffees, setCoffees } = useContext(CoffeesContext)
   const [amountOfCoffees, setAmountOfCoffees] = useState(amount)
 
   function additionAmount() {
@@ -62,12 +61,11 @@ export function Coffe({
 
     setCoffees(coffeAmountUpdated)
 
-    const coffeesFiltrados = coffees.filter(
+    const coffeesFilteredByAmount = coffeAmountUpdated.filter(
       (coffeeObject) => coffeeObject.amount > 0,
     )
 
-    setCoffeesCart(coffeesFiltrados)
-    console.log(coffeesCart)
+    setCoffeesCart(coffeesFilteredByAmount)
   }
 
   return (

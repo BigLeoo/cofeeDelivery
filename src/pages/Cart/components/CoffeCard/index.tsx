@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from 'react'
 import { CoffeSelected } from './CoffeSelected'
 import {
   CoffeCardContainer,
@@ -8,17 +9,42 @@ import {
   TotalCost,
   TotalCostContainer,
 } from './style'
+import { CoffeesContext } from '../../../../context/Coffes'
 
 export function CoffeCard() {
+  const { coffeesCart, setCoffeesCart } = useContext(CoffeesContext)
+
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  useEffect(() => {
+    let totalPriceOfCoffees = 0
+
+    coffeesCart.forEach((coffee) => {
+      totalPriceOfCoffees =
+        (coffee.value / 100) * coffee.amount + totalPriceOfCoffees
+    })
+
+    setTotalPrice(totalPriceOfCoffees)
+  }, [coffeesCart])
+
   return (
     <CoffeCardContainer>
-      <CoffeSelected />
-      <CoffeSelected />
+      {coffeesCart.map((coffee) => (
+        <CoffeSelected
+          key={coffee.coffeeName}
+          coffeeImg={coffee.coffeImg}
+          coffeeName={coffee.coffeeName}
+          amount={coffee.amount}
+          value={coffee.value}
+        />
+      ))}
 
       <PaymantPrice>
         <CostsContent>
           <Cost>Total de itens</Cost>
-          <Cost>R$ 29,70</Cost>
+          <Cost>
+            R$ <span>{totalPrice.toFixed(2)}</span>
+          </Cost>
         </CostsContent>
         <CostsContent>
           <Cost>Entrega</Cost>
@@ -28,7 +54,9 @@ export function CoffeCard() {
 
       <TotalCostContainer>
         <TotalCost>Total</TotalCost>
-        <TotalCost>R$ 33,20</TotalCost>
+        <TotalCost>
+          R$ <span>{(totalPrice + 3.5).toFixed(2)}</span>
+        </TotalCost>
       </TotalCostContainer>
 
       <ConfirmedOrderButton>Confirmar Pedido</ConfirmedOrderButton>
