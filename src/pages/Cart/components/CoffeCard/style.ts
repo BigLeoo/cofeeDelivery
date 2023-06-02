@@ -14,6 +14,18 @@ export const CoffeCardContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px 44px;
 `
+
+export const CoffeesSelectedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  height: 21rem;
+  width: 25rem;
+  overflow: auto;
+`
+
 export const PaymantPrice = styled.div`
   display: flex;
   flex-direction: column;

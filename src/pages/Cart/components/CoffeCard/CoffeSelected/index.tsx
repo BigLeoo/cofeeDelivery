@@ -29,8 +29,26 @@ export function CoffeSelected({
   amount,
   value,
 }: CoffeSelectedProps) {
-  const { coffeesCart, setCoffeesCart } = useContext(CoffeesContext)
+  const { coffeesCart, setCoffeesCart, coffees, setCoffees } =
+    useContext(CoffeesContext)
+
   const [amountOfCoffees, setAmountOfCoffees] = useState(amount)
+
+  function removeCoffeeCart() {
+    const copyCoffees = [...coffees]
+
+    const coffeeUpdated = copyCoffees.map((coffeeObject) => {
+      if (coffeeObject.coffeeName === coffeeName) {
+        return { ...coffeeObject, amount: 0 }
+      } else {
+        return coffeeObject
+      }
+    })
+
+    console.log(coffeeUpdated)
+
+    setCoffees(coffeeUpdated)
+  }
 
   function addAmount() {
     setAmountOfCoffees(amountOfCoffees + 1)
@@ -73,7 +91,7 @@ export function CoffeSelected({
                   cursor={'pointer'}
                   onClick={decreaseAmount}
                 />
-                <AmountNumber>{amountOfCoffees}</AmountNumber>
+                <AmountNumber>{amount}</AmountNumber>
                 <Plus
                   width={'0.875rem'}
                   height={'0.875rem'}
@@ -82,7 +100,7 @@ export function CoffeSelected({
                   onClick={addAmount}
                 />
               </Amount>
-              <RemoveCoffe>
+              <RemoveCoffe onClick={removeCoffeeCart}>
                 <Trash color="#8047F8" width={'1rem'} height={'1rem'} />
                 <RemoveText>Remover</RemoveText>
               </RemoveCoffe>

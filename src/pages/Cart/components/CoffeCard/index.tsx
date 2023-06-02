@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { CoffeSelected } from './CoffeSelected'
 import {
   CoffeCardContainer,
+  CoffeesSelectedContainer,
   ConfirmedOrderButton,
   Cost,
   CostsContent,
@@ -12,7 +13,7 @@ import {
 import { CoffeesContext } from '../../../../context/Coffes'
 
 export function CoffeCard() {
-  const { coffeesCart, setCoffeesCart } = useContext(CoffeesContext)
+  const { coffeesCart } = useContext(CoffeesContext)
 
   const [totalPrice, setTotalPrice] = useState(0)
 
@@ -29,15 +30,17 @@ export function CoffeCard() {
 
   return (
     <CoffeCardContainer>
-      {coffeesCart.map((coffee) => (
-        <CoffeSelected
-          key={coffee.coffeeName}
-          coffeeImg={coffee.coffeImg}
-          coffeeName={coffee.coffeeName}
-          amount={coffee.amount}
-          value={coffee.value}
-        />
-      ))}
+      <CoffeesSelectedContainer>
+        {coffeesCart.map((coffee) => (
+          <CoffeSelected
+            key={coffee.coffeeName}
+            coffeeImg={coffee.coffeImg}
+            coffeeName={coffee.coffeeName}
+            amount={coffee.amount}
+            value={coffee.value}
+          />
+        ))}
+      </CoffeesSelectedContainer>
 
       <PaymantPrice>
         <CostsContent>

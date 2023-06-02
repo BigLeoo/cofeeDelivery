@@ -18,8 +18,10 @@ interface Coffee {
 interface CoffeesContextType {
   coffees: Coffee[]
   coffeesCart: Coffee[]
+  amountOfCoffees: number
   setCoffeesCart: Dispatch<SetStateAction<Coffee[]>>
   setCoffees: Dispatch<SetStateAction<Coffee[]>>
+  setAmountOfCoffees: Dispatch<SetStateAction<number>>
 }
 
 interface CoffeesContextProviderProps {
@@ -38,7 +40,7 @@ const coffeMenu: Coffee[] = [
     amount: 0,
   },
   {
-    coffeImg: 'images/coffees/Type=Americano.svg',
+    coffeImg: 'images/coffees/Type=Expresso.svg',
     coffeCharacteristics: ['TRADICIONAL'],
     coffeeName: 'Expresso Americano',
     coffeDescription: 'Expresso diluído, menos intenso que o tradicional',
@@ -158,11 +160,20 @@ export const CoffeesContextProvider = ({
 
   const [coffees, setCoffees] = useState<Coffee[]>([])
 
+  const [amountOfCoffees, setAmountOfCoffees] = useState(0)
+
   useEffect(() => setCoffees([...coffeMenu]), [])
 
   return (
     <CoffeesContext.Provider
-      value={{ coffees, setCoffees, coffeesCart, setCoffeesCart }}
+      value={{
+        coffees,
+        setCoffees,
+        coffeesCart,
+        setCoffeesCart,
+        amountOfCoffees,
+        setAmountOfCoffees,
+      }}
     >
       {children}
     </CoffeesContext.Provider>

@@ -15,7 +15,7 @@ import {
 } from './style'
 
 import { v4 as uuidv4 } from 'uuid'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CoffeesContext } from '../../../../../../context/Coffes'
 
 interface CoffeeProps {
@@ -40,11 +40,35 @@ export function Coffe({
 
   function additionAmount() {
     setAmountOfCoffees(amountOfCoffees + 1)
+
+    // const copyCoffes = [...coffees]
+
+    // const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
+    //   if (coffeeObject.coffeeName === coffeeName) {
+    //     return { ...coffeeObject, amount: coffeeObject.amount + 1 }
+    //   } else {
+    //     return coffeeObject
+    //   }
+    // })
+
+    // setCoffees(coffeAmountUpdated)
   }
 
   function decreaseAmount() {
-    if (!(amountOfCoffees === 0)) {
+    if (!(amount === 0)) {
       setAmountOfCoffees(amountOfCoffees - 1)
+
+      // const copyCoffes = [...coffees]
+
+      // const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
+      //   if (coffeeObject.coffeeName === coffeeName) {
+      //     return { ...coffeeObject, amount: coffeeObject.amount - 1 }
+      //   } else {
+      //     return coffeeObject
+      //   }
+      // })
+
+      // setCoffees(coffeAmountUpdated)
     }
   }
 
@@ -61,12 +85,20 @@ export function Coffe({
 
     setCoffees(coffeAmountUpdated)
 
-    const coffeesFilteredByAmount = coffeAmountUpdated.filter(
+    // const coffeesFilteredByAmount = copyCoffes.filter(
+    //   (coffeeObject) => coffeeObject.amount > 0,
+    // )
+
+    // setCoffeesCart(coffeesFilteredByAmount)
+  }
+
+  useEffect(() => {
+    const coffeesFilteredByAmount = coffees.filter(
       (coffeeObject) => coffeeObject.amount > 0,
     )
 
     setCoffeesCart(coffeesFilteredByAmount)
-  }
+  }, [coffees, setCoffeesCart])
 
   return (
     <CoffeeContainer>
