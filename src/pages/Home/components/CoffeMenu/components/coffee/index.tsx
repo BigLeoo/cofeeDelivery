@@ -36,39 +36,15 @@ export function Coffe({
   amount,
 }: CoffeeProps) {
   const { setCoffeesCart, coffees, setCoffees } = useContext(CoffeesContext)
-  const [amountOfCoffees, setAmountOfCoffees] = useState(amount)
+  const [amountOfCoffees, setAmountOfCoffees] = useState(0)
 
   function additionAmount() {
     setAmountOfCoffees(amountOfCoffees + 1)
-
-    // const copyCoffes = [...coffees]
-
-    // const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
-    //   if (coffeeObject.coffeeName === coffeeName) {
-    //     return { ...coffeeObject, amount: coffeeObject.amount + 1 }
-    //   } else {
-    //     return coffeeObject
-    //   }
-    // })
-
-    // setCoffees(coffeAmountUpdated)
   }
 
   function decreaseAmount() {
     if (!(amount === 0)) {
       setAmountOfCoffees(amountOfCoffees - 1)
-
-      // const copyCoffes = [...coffees]
-
-      // const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
-      //   if (coffeeObject.coffeeName === coffeeName) {
-      //     return { ...coffeeObject, amount: coffeeObject.amount - 1 }
-      //   } else {
-      //     return coffeeObject
-      //   }
-      // })
-
-      // setCoffees(coffeAmountUpdated)
     }
   }
 
@@ -77,19 +53,17 @@ export function Coffe({
 
     const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
       if (coffeeObject.coffeeName === coffeeName) {
-        return { ...coffeeObject, amount: amountOfCoffees }
+        return {
+          ...coffeeObject,
+          amount: coffeeObject.amount + amountOfCoffees,
+        }
       } else {
         return coffeeObject
       }
     })
 
     setCoffees(coffeAmountUpdated)
-
-    // const coffeesFilteredByAmount = copyCoffes.filter(
-    //   (coffeeObject) => coffeeObject.amount > 0,
-    // )
-
-    // setCoffeesCart(coffeesFilteredByAmount)
+    setAmountOfCoffees(0)
   }
 
   useEffect(() => {

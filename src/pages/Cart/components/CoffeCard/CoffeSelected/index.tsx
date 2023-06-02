@@ -29,10 +29,7 @@ export function CoffeSelected({
   amount,
   value,
 }: CoffeSelectedProps) {
-  const { coffeesCart, setCoffeesCart, coffees, setCoffees } =
-    useContext(CoffeesContext)
-
-  const [amountOfCoffees, setAmountOfCoffees] = useState(amount)
+  const { setCoffeesCart, coffees, setCoffees } = useContext(CoffeesContext)
 
   function removeCoffeeCart() {
     const copyCoffees = [...coffees]
@@ -45,34 +42,60 @@ export function CoffeSelected({
       }
     })
 
-    console.log(coffeeUpdated)
-
     setCoffees(coffeeUpdated)
   }
 
   function addAmount() {
-    setAmountOfCoffees(amountOfCoffees + 1)
-  }
+    const copyCoffees = [...coffees]
 
-  function decreaseAmount() {
-    if (!(amountOfCoffees === 1)) {
-      setAmountOfCoffees(amountOfCoffees - 1)
-    }
-  }
-
-  useEffect(() => {
-    const copyCoffeesCart = [...coffeesCart]
-
-    const coffeeAmountCartUpdadted = copyCoffeesCart.map((coffeeObject) => {
+    const coffeeUpdated = copyCoffees.map((coffeeObject) => {
       if (coffeeObject.coffeeName === coffeeName) {
-        return { ...coffeeObject, amount: amountOfCoffees }
+        return { ...coffeeObject, amount: coffeeObject.amount + 1 }
       } else {
         return coffeeObject
       }
     })
 
-    setCoffeesCart(coffeeAmountCartUpdadted)
-  }, [amountOfCoffees])
+    setCoffees(coffeeUpdated)
+  }
+
+  function decreaseAmount() {
+    if (!(amount === 1)) {
+      const copyCoffees = [...coffees]
+
+      const coffeeUpdated = copyCoffees.map((coffeeObject) => {
+        if (coffeeObject.coffeeName === coffeeName) {
+          return { ...coffeeObject, amount: coffeeObject.amount - 1 }
+        } else {
+          return coffeeObject
+        }
+      })
+
+      setCoffees(coffeeUpdated)
+    }
+  }
+
+  useEffect(() => {
+    const coffeesFilteredByAmount = coffees.filter(
+      (coffeeObject) => coffeeObject.amount > 0,
+    )
+
+    setCoffeesCart(coffeesFilteredByAmount)
+  }, [coffees, setCoffeesCart])
+
+  // useEffect(() => {
+  //   const copyCoffeesCart = [...coffeesCart]
+
+  //   const coffeeAmountCartUpdadted = copyCoffeesCart.map((coffeeObject) => {
+  //     if (coffeeObject.coffeeName === coffeeName) {
+  //       return { ...coffeeObject, amount: amountOfCoffees }
+  //     } else {
+  //       return coffeeObject
+  //     }
+  //   })
+
+  //   setCoffeesCart(coffeeAmountCartUpdadted)
+  // }, [amountOfCoffees])
 
   return (
     <>

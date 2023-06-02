@@ -18,10 +18,8 @@ interface Coffee {
 interface CoffeesContextType {
   coffees: Coffee[]
   coffeesCart: Coffee[]
-  amountOfCoffees: number
   setCoffeesCart: Dispatch<SetStateAction<Coffee[]>>
   setCoffees: Dispatch<SetStateAction<Coffee[]>>
-  setAmountOfCoffees: Dispatch<SetStateAction<number>>
 }
 
 interface CoffeesContextProviderProps {
@@ -160,8 +158,6 @@ export const CoffeesContextProvider = ({
 
   const [coffees, setCoffees] = useState<Coffee[]>([])
 
-  const [amountOfCoffees, setAmountOfCoffees] = useState(0)
-
   useEffect(() => setCoffees([...coffeMenu]), [])
 
   return (
@@ -171,8 +167,6 @@ export const CoffeesContextProvider = ({
         setCoffees,
         coffeesCart,
         setCoffeesCart,
-        amountOfCoffees,
-        setAmountOfCoffees,
       }}
     >
       {children}
