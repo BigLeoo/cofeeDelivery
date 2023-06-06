@@ -61,6 +61,7 @@ export const Input = styled.input`
 
 export const InputCep = styled(Input)`
   width: 12.5rem;
+  appearance: none;
 `
 
 export const InputStreet = styled(Input)`
@@ -69,6 +70,7 @@ export const InputStreet = styled(Input)`
 
 export const InputNumber = styled(Input)`
   width: 12.5rem;
+  appearance: none;
 `
 
 export const InputComplement = styled(Input)`

@@ -15,8 +15,11 @@ import {
   Title,
   TitleContainer,
 } from './style'
+import { useFormContext } from 'react-hook-form'
 
 export function Addres() {
+  const { register } = useFormContext()
+
   return (
     <AddresContainer>
       <TitleContainer>
@@ -28,18 +31,30 @@ export function Addres() {
       </TitleContainer>
 
       <InputContainer>
-        <InputCep type="text" placeholder="CEP" />
-        <InputStreet type="text" placeholder="Rua" />
+        <InputCep type="number" placeholder="CEP" {...register('cep')} />
+        <InputStreet type="text" placeholder="Rua" {...register('street')} />
 
         <ContainerInput>
-          <InputNumber type="text" placeholder="Número" />
-          <InputComplement type="text" placeholder="Complemento" />
+          <InputNumber
+            type="number"
+            placeholder="Número"
+            {...register('number')}
+          />
+          <InputComplement
+            type="text"
+            placeholder="Complemento"
+            {...register('complement')}
+          />
         </ContainerInput>
 
         <ContainerInput>
-          <InputNeighborhood type="text" placeholder="Bairro" />
-          <InputCity type="text" placeholder="Cidade" />
-          <InputState type="text" placeholder="UF" />
+          <InputNeighborhood
+            type="text"
+            placeholder="Bairro"
+            {...register('neighborhood')}
+          />
+          <InputCity type="text" placeholder="Cidade" {...register('city')} />
+          <InputState type="text" placeholder="UF" {...register('state')} />
         </ContainerInput>
       </InputContainer>
     </AddresContainer>

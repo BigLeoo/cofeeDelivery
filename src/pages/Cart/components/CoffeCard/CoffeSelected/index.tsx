@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import {
   Amount,
   AmountNumber,
@@ -82,20 +82,6 @@ export function CoffeSelected({
 
     setCoffeesCart(coffeesFilteredByAmount)
   }, [coffees, setCoffeesCart])
-
-  // useEffect(() => {
-  //   const copyCoffeesCart = [...coffeesCart]
-
-  //   const coffeeAmountCartUpdadted = copyCoffeesCart.map((coffeeObject) => {
-  //     if (coffeeObject.coffeeName === coffeeName) {
-  //       return { ...coffeeObject, amount: amountOfCoffees }
-  //     } else {
-  //       return coffeeObject
-  //     }
-  //   })
-
-  //   setCoffeesCart(coffeeAmountCartUpdadted)
-  // }, [amountOfCoffees])
 
   return (
     <>

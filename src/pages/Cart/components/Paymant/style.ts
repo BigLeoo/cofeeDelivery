@@ -1,6 +1,6 @@
 /* eslint-disable dot-notation */
 
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 export const PaymantContainer = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ export const ChoosePaymantButtonContainer = styled.div`
   width: 35rem;
   height: 3.188rem;
 `
-export const ChoosePaymantButton = styled.button`
+export const ChoosePaymantLabel = styled.label`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,4 +93,12 @@ export const ChoosePaymantButton = styled.button`
   &:hover {
     background-color: ${(props) => props.theme['base-hover']};
   }
+
+  &.clicked {
+    background: ${(props) => props.theme['purple-light']};
+    border: 1px solid ${(props) => props.theme['purple']};
+  }
+`
+export const RadioInput = styled.input`
+  display: none;
 `

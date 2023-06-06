@@ -11,6 +11,7 @@ import {
   TotalCostContainer,
 } from './style'
 import { CoffeesContext } from '../../../../context/Coffes'
+import { useFormContext } from 'react-hook-form'
 
 export function CoffeCard() {
   const { coffeesCart } = useContext(CoffeesContext)
@@ -27,6 +28,23 @@ export function CoffeCard() {
 
     setTotalPrice(totalPriceOfCoffees)
   }, [coffeesCart])
+
+  const { watch } = useFormContext()
+
+  const watchFields = watch([
+    'cep',
+    'street',
+    'number',
+    'complement',
+    'neighborhood',
+    'city',
+    'state',
+    'paymantButtonClicked',
+  ])
+
+  const isFieldsEmpty = Object.values(watchFields).some(
+    (value) => value === '' || value === null,
+  )
 
   return (
     <CoffeCardContainer>
@@ -62,7 +80,12 @@ export function CoffeCard() {
         </TotalCost>
       </TotalCostContainer>
 
-      <ConfirmedOrderButton>Confirmar Pedido</ConfirmedOrderButton>
+      <ConfirmedOrderButton
+        disabled={isFieldsEmpty || coffeesCart.length === 0}
+        type="submit"
+      >
+        Confirmar Pedido
+      </ConfirmedOrderButton>
     </CoffeCardContainer>
   )
 }

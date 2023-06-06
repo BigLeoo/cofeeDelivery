@@ -13,6 +13,10 @@ export const GlobalStyle = createGlobalStyle`
         /* box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-dark']} */
     }
 
+    input:focus{
+        box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-dark']}
+    }
+
     body{
         background: ${(props) => props.theme['background']};
         -webkit-font-smoothing: antialiased;

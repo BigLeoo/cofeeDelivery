@@ -5,7 +5,6 @@ import { CoffeesContext } from '../../../../context/Coffes'
 
 export function CoffeMenu() {
   const { coffees } = useContext(CoffeesContext)
-  // console.log(coffees)
 
   return (
     <Container>
