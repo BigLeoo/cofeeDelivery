@@ -15,6 +15,20 @@ export const CoffeCardContainer = styled.div`
   border-radius: 6px 44px;
 `
 
+export const NoCoffeeCart = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  color: ${(props) => props.theme['base-text']};
+  font-weight: 400;
+
+  width: 90%;
+  height: 100%;
+`
+
 export const CoffeesSelectedContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -106,5 +120,10 @@ export const ConfirmedOrderButton = styled.button`
 
   &:hover {
     background: ${(props) => props.theme['yellow-dark']};
+  }
+
+  &:disabled {
+    background: ${(props) => props.theme['yellow-dark']};
+    cursor: not-allowed;
   }
 `

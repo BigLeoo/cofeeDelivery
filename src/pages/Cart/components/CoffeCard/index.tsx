@@ -9,9 +9,13 @@ import {
   PaymantPrice,
   TotalCost,
   TotalCostContainer,
+  NoCoffeeCart,
 } from './style'
 import { CoffeesContext } from '../../../../context/Coffes'
 import { useFormContext } from 'react-hook-form'
+import { X } from 'phosphor-react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 
 export function CoffeCard() {
   const { coffeesCart } = useContext(CoffeesContext)
@@ -49,15 +53,22 @@ export function CoffeCard() {
   return (
     <CoffeCardContainer>
       <CoffeesSelectedContainer>
-        {coffeesCart.map((coffee) => (
-          <CoffeSelected
-            key={coffee.coffeeName}
-            coffeeImg={coffee.coffeImg}
-            coffeeName={coffee.coffeeName}
-            amount={coffee.amount}
-            value={coffee.value}
-          />
-        ))}
+        {coffeesCart.length > 0 ? (
+          coffeesCart.map((coffee) => (
+            <CoffeSelected
+              key={coffee.coffeeName}
+              coffeeImg={coffee.coffeImg}
+              coffeeName={coffee.coffeeName}
+              amount={coffee.amount}
+              value={coffee.value}
+            />
+          ))
+        ) : (
+          <NoCoffeeCart>
+            <X size={70} weight="bold" color="#848484" />
+            Sem Cafés Adicionados
+          </NoCoffeeCart>
+        )}
       </CoffeesSelectedContainer>
 
       <PaymantPrice>
