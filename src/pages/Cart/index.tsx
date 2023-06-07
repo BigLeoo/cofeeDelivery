@@ -5,6 +5,7 @@ import { AddresPaymantContainer, ContentContainer, Title } from './styles'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z, ZodType } from 'zod'
+import { useNavigate } from 'react-router-dom'
 
 export function Cart() {
   type FormData = {
@@ -34,6 +35,7 @@ export function Cart() {
 
   function dataConfirmedOrderedPaymant(data: FormData) {
     console.log(data)
+    useNavigate('/cart/confirmedOrder')
   }
 
   return (

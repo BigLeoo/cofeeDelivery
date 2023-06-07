@@ -14,6 +14,7 @@ import {
 import { CoffeesContext } from '../../../../context/Coffes'
 import { useFormContext } from 'react-hook-form'
 import { X } from 'phosphor-react'
+import { NavLink } from 'react-router-dom'
 
 export function CoffeCard() {
   const { coffeesCart } = useContext(CoffeesContext)
@@ -88,12 +89,14 @@ export function CoffeCard() {
         </TotalCost>
       </TotalCostContainer>
 
+      {/* <NavLink to="/cart/confirmedOrder" title="ConfirmedOrder"> */}
       <ConfirmedOrderButton
         disabled={isFieldsEmpty || coffeesCart.length === 0}
         type="submit"
       >
         Confirmar Pedido
       </ConfirmedOrderButton>
+      {/* </NavLink> */}
     </CoffeCardContainer>
   )
 }
