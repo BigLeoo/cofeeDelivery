@@ -25,6 +25,7 @@ export function Cart() {
     neighborhood: z.string().min(3).max(40),
     city: z.string().min(3).max(40),
     state: z.string().min(1).max(2),
+    paymantButtonClicked: z.string(),
   })
 
   const confirmedOrderedPaymantForm = useForm<FormData>({
