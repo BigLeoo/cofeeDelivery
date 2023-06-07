@@ -15,7 +15,7 @@ import {
 } from './style'
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { CoffeesContext } from '../../../../../context/Coffes'
-
+import { toast } from 'react-toastify'
 interface CoffeSelectedProps {
   coffeeImg: string
   coffeeName: string
@@ -33,6 +33,7 @@ export function CoffeSelected({
 
   function removeCoffeeCart() {
     const copyCoffees = [...coffees]
+    notifyCoffeeRemoveCart()
 
     const coffeeUpdated = copyCoffees.map((coffeeObject) => {
       if (coffeeObject.coffeeName === coffeeName) {
@@ -82,6 +83,18 @@ export function CoffeSelected({
 
     setCoffeesCart(coffeesFilteredByAmount)
   }, [coffees, setCoffeesCart])
+
+  const notifyCoffeeRemoveCart = () =>
+    toast.error(`O café ${coffeeName}, foi removido do carrinho !!`, {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: 'colored',
+    })
 
   return (
     <>

@@ -17,6 +17,7 @@ import {
 import { v4 as uuidv4 } from 'uuid'
 import { useContext, useEffect, useState } from 'react'
 import { CoffeesContext } from '../../../../../../context/Coffes'
+import { toast } from 'react-toastify'
 
 interface CoffeeProps {
   coffeImg: string
@@ -52,7 +53,8 @@ export function Coffe({
     const copyCoffes = [...coffees]
 
     const coffeAmountUpdated = copyCoffes.map((coffeeObject) => {
-      if (coffeeObject.coffeeName === coffeeName) {
+      if (coffeeObject.coffeeName === coffeeName && amountOfCoffees > 0) {
+        notifyCoffeeAddToCart()
         return {
           ...coffeeObject,
           amount: coffeeObject.amount + amountOfCoffees,
@@ -73,6 +75,18 @@ export function Coffe({
 
     setCoffeesCart(coffeesFilteredByAmount)
   }, [coffees, setCoffeesCart])
+
+  const notifyCoffeeAddToCart = () =>
+    toast.success(`O café ${coffeeName}, foi adicionado ao carrinho !!`, {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: 'colored',
+    })
 
   return (
     <CoffeeContainer>

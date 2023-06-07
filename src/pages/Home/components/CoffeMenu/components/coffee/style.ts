@@ -144,8 +144,12 @@ export const ShoppingCartContainer = styled.div`
   height: 2.375rem;
 
   border-radius: 6px;
-  background-color: ${(props) => props.theme['purple-dark']};
+  background-color: ${(props) => props.theme.purple};
 
   color: ${(props) => props.theme['base-card']};
   cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme['purple-dark']};
+  }
 `
