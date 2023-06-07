@@ -14,8 +14,6 @@ import {
 import { CoffeesContext } from '../../../../context/Coffes'
 import { useFormContext } from 'react-hook-form'
 import { X } from 'phosphor-react'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
 
 export function CoffeCard() {
   const { coffeesCart } = useContext(CoffeesContext)
@@ -39,7 +37,6 @@ export function CoffeCard() {
     'cep',
     'street',
     'number',
-    'complement',
     'neighborhood',
     'city',
     'state',

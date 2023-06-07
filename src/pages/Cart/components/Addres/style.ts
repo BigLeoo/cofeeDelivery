@@ -3,8 +3,12 @@ import styled from 'styled-components'
 export const AddresContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
 
-  width: 40rem;
-  height: 23.25rem;
+  max-width: 40rem;
+  /* max-width: 43rem; */
+  /* width: 40rem; */
+  min-height: 23.25rem;
+  max-height: 32rem;
+  /* height: 23.25rem; */
   padding: 2.5rem;
   border-radius: 6px;
 
@@ -92,4 +96,16 @@ export const InputState = styled(Input)`
 export const ContainerInput = styled.div`
   display: flex;
   gap: 0.75rem;
+`
+
+export const ErrorMensage = styled.span`
+  color: #ff3a3d;
+  font-weight: 700;
+  font-size: 0.8rem;
+`
+
+export const InputContainerErro = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `

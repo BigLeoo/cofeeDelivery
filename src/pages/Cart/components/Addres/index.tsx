@@ -2,10 +2,12 @@ import { MapPinLine } from 'phosphor-react'
 import {
   AddresContainer,
   ContainerInput,
+  ErrorMensage,
   InputCep,
   InputCity,
   InputComplement,
   InputContainer,
+  InputContainerErro,
   InputNeighborhood,
   InputNumber,
   InputState,
@@ -18,7 +20,10 @@ import {
 import { useFormContext } from 'react-hook-form'
 
 export function Addres() {
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
 
   return (
     <AddresContainer>
@@ -31,30 +36,70 @@ export function Addres() {
       </TitleContainer>
 
       <InputContainer>
-        <InputCep type="number" placeholder="CEP" {...register('cep')} />
+        <InputCep
+          type="number"
+          placeholder="CEP"
+          {...register('cep', { valueAsNumber: true })}
+        />
+        {errors.cep && (
+          <ErrorMensage> Verifique se o CEP está correto </ErrorMensage>
+        )}
         <InputStreet type="text" placeholder="Rua" {...register('street')} />
+        {errors.street && (
+          <ErrorMensage> Verifique se o endereço está correto </ErrorMensage>
+        )}
 
         <ContainerInput>
-          <InputNumber
-            type="number"
-            placeholder="Número"
-            {...register('number')}
-          />
-          <InputComplement
-            type="text"
-            placeholder="Complemento"
-            {...register('complement')}
-          />
+          <InputContainerErro>
+            <InputNumber
+              type="number"
+              placeholder="Número"
+              {...register('number', { valueAsNumber: true })}
+            />
+            {errors.number && (
+              <ErrorMensage> Verifique se o número está correto </ErrorMensage>
+            )}
+          </InputContainerErro>
+
+          <InputContainerErro>
+            <InputComplement
+              type="text"
+              placeholder="Complemento"
+              {...register('complement')}
+            />
+            {errors.complement && (
+              <ErrorMensage>
+                O número de caracteres foi ultrapassado
+              </ErrorMensage>
+            )}
+          </InputContainerErro>
         </ContainerInput>
 
         <ContainerInput>
-          <InputNeighborhood
-            type="text"
-            placeholder="Bairro"
-            {...register('neighborhood')}
-          />
-          <InputCity type="text" placeholder="Cidade" {...register('city')} />
-          <InputState type="text" placeholder="UF" {...register('state')} />
+          <InputContainerErro>
+            <InputNeighborhood
+              type="text"
+              placeholder="Bairro"
+              {...register('neighborhood')}
+            />
+            {errors.neighborhood && (
+              <ErrorMensage> Verifique se o bairro está correto </ErrorMensage>
+            )}
+          </InputContainerErro>
+
+          <InputContainerErro>
+            <InputCity type="text" placeholder="Cidade" {...register('city')} />
+            {errors.city && (
+              <ErrorMensage> Verifique se a cidade está correto </ErrorMensage>
+            )}
+          </InputContainerErro>
+
+          <InputContainerErro>
+            <InputState type="text" placeholder="UF" {...register('state')} />
+            {errors.state && (
+              <ErrorMensage> Verifique se o estado está correto </ErrorMensage>
+            )}
+          </InputContainerErro>
         </ContainerInput>
       </InputContainer>
     </AddresContainer>
