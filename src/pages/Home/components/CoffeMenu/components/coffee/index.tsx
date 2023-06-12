@@ -77,7 +77,7 @@ export function Coffe({
   }, [coffees, setCoffeesCart])
 
   const notifyCoffeeAddToCart = () =>
-    toast.success(`O café ${coffeeName}, foi adicionado ao carrinho !!`, {
+    toast.success(`O ${coffeeName}, foi adicionado ao carrinho !!`, {
       position: 'top-center',
       autoClose: 5000,
       hideProgressBar: false,
@@ -85,7 +85,7 @@ export function Coffe({
       pauseOnHover: true,
       draggable: false,
       progress: undefined,
-      theme: 'colored',
+      theme: 'light',
     })
 
   return (

@@ -26,7 +26,7 @@ function App() {
         pauseOnFocusLoss
         draggable={false}
         pauseOnHover
-        theme="colored"
+        theme="light"
       />
     </ThemeProvider>
   )

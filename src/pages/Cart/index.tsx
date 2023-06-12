@@ -6,8 +6,12 @@ import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z, ZodType } from 'zod'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../context/Coffes'
 
 export function Cart() {
+  const { setOrderConfirmed, setCoffeesCart } = useContext(CoffeesContext)
+
   type FormData = {
     cep: number
     street: string
@@ -16,6 +20,7 @@ export function Cart() {
     neighborhood: string
     city: string
     state: string
+    paymantButtonClicked: string
   }
 
   const schemaValidadtion: ZodType<FormData> = z.object({
@@ -36,8 +41,10 @@ export function Cart() {
   const navigate = useNavigate()
 
   function dataConfirmedOrderedPaymant(data: FormData) {
-    console.log(data)
-    // redirect('/Cart/ConfirmedOrder')
+    // console.log(data)
+    setCoffeesCart([])
+    setOrderConfirmed(data)
+
     navigate('/Cart/ConfirmedOrder')
   }
 

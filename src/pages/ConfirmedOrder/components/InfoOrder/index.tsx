@@ -10,8 +10,12 @@ import {
   OrdersInfosContainer,
   TimerPinContainer,
 } from './styles'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../../../context/Coffes'
 
 export function InfoOrder() {
+  const { orderConfirmed } = useContext(CoffeesContext)
+
   return (
     <InfoContainer>
       <OrdersInfosContainer>
@@ -22,10 +26,15 @@ export function InfoOrder() {
           <div>
             <NormalP>
               Entrega em
-              <BoldStreetText>Rua João Daniel Martinelli, 102</BoldStreetText>
+              <BoldStreetText>
+                Rua {orderConfirmed.street}, {orderConfirmed.number}
+              </BoldStreetText>
             </NormalP>
 
-            <NormalP>Farrapos - Porto Alegre. RS</NormalP>
+            <NormalP>
+              {orderConfirmed.neighborhood} - {orderConfirmed.city}.{' '}
+              {orderConfirmed.state}
+            </NormalP>
           </div>
         </OrderInfoContainer>
 
@@ -44,8 +53,8 @@ export function InfoOrder() {
             <CurrencyDollar size={'1rem'} color="white" weight="fill" />
           </DolarPinContainer>
           <div>
-            <NormalP>Previsão de Entrega</NormalP>
-            <BoldP>20 min - 30 min</BoldP>
+            <NormalP>Pagamento na Entrega</NormalP>
+            <BoldP>{orderConfirmed.paymantButtonClicked}</BoldP>
           </div>
         </OrderInfoContainer>
       </OrdersInfosContainer>

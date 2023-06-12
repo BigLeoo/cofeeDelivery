@@ -15,9 +15,22 @@ interface Coffee {
   value: number
   amount: number
 }
+
+interface ConfirmedOrder {
+  cep: number
+  street: string
+  number: number
+  complement?: string
+  neighborhood: string
+  city: string
+  state: string
+  paymantButtonClicked: string
+}
 interface CoffeesContextType {
   coffees: Coffee[]
   coffeesCart: Coffee[]
+  orderConfirmed: ConfirmedOrder
+  setOrderConfirmed: Dispatch<SetStateAction<ConfirmedOrder>>
   setCoffeesCart: Dispatch<SetStateAction<Coffee[]>>
   setCoffees: Dispatch<SetStateAction<Coffee[]>>
 }
@@ -158,11 +171,24 @@ export const CoffeesContextProvider = ({
 
   const [coffees, setCoffees] = useState<Coffee[]>([])
 
+  const [orderConfirmed, setOrderConfirmed] = useState<ConfirmedOrder>({
+    cep: 0,
+    city: 'Porto Alegre',
+    neighborhood: 'Farrapos',
+    number: 102,
+    state: 'RS',
+    street: 'João Daniel Martinelli',
+    complement: '',
+    paymantButtonClicked: 'Dinheiro',
+  })
+
   useEffect(() => setCoffees([...coffeMenu]), [])
 
   return (
     <CoffeesContext.Provider
       value={{
+        orderConfirmed,
+        setOrderConfirmed,
         coffees,
         setCoffees,
         coffeesCart,

@@ -85,7 +85,7 @@ export function CoffeSelected({
   }, [coffees, setCoffeesCart])
 
   const notifyCoffeeRemoveCart = () =>
-    toast.error(`O café ${coffeeName}, foi removido do carrinho !!`, {
+    toast.error(`O ${coffeeName}, foi removido do carrinho !!`, {
       position: 'top-center',
       autoClose: 5000,
       hideProgressBar: false,
@@ -93,7 +93,7 @@ export function CoffeSelected({
       pauseOnHover: true,
       draggable: false,
       progress: undefined,
-      theme: 'colored',
+      theme: 'light',
     })
 
   return (
