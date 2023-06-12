@@ -1,5 +1,6 @@
 /* eslint-disable dot-notation */
 import { styled } from 'styled-components'
+import { device } from '../../styles/responsive'
 
 export const HeaderContainer = styled.header`
   background: ${(props) => props.theme['background']};
@@ -7,9 +8,25 @@ export const HeaderContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
   padding: 2rem 10rem 2rem 10rem;
-  width: 90rem;
+  min-width: 90rem;
   /* width: 100%;
   max-width: 90rem; */
+
+  @media ${device.laptop} {
+    min-width: 1024px;
+  }
+
+  @media ${device.laptopM} {
+    min-width: 1106px;
+  }
+
+  @media ${device.tablet} {
+    min-width: 768px;
+  }
+
+  @media ${device.mobileL} {
+    min-height: 425px;
+  }
 `
 
 export const DivContainer = styled.div`
