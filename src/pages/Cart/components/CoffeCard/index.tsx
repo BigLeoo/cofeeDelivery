@@ -14,7 +14,6 @@ import {
 import { CoffeesContext } from '../../../../context/Coffes'
 import { useFormContext } from 'react-hook-form'
 import { X } from 'phosphor-react'
-import { NavLink } from 'react-router-dom'
 
 export function CoffeCard() {
   const { coffeesCart } = useContext(CoffeesContext)

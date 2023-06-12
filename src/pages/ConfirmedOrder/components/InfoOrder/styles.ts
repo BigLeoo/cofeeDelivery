@@ -70,6 +70,13 @@ export const BoldP = styled(NormalP)`
   font-weight: 700;
 `
 
-export const BoldStreetText = styled(BoldP)`
+export const BoldStreetText = styled.span`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.313rem;
+  color: ${(props) => props.theme['base-text']};
+
   margin-left: 0.3rem;
 `

@@ -33,9 +33,12 @@ export function Cart() {
     resolver: zodResolver(schemaValidadtion),
   })
 
+  const navigate = useNavigate()
+
   function dataConfirmedOrderedPaymant(data: FormData) {
     console.log(data)
-    useNavigate('/cart/confirmedOrder')
+    // redirect('/Cart/ConfirmedOrder')
+    navigate('/Cart/ConfirmedOrder')
   }
 
   return (
