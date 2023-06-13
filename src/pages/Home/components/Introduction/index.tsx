@@ -54,7 +54,7 @@ export function Introduction() {
           </BulletPoints2>
         </ArticleBulletPoints>
       </section>
-      <ImageCoffe src={image} alt="" width={'29.75rem'} height={'22.5rem'} />
+      <ImageCoffe src={image} />
     </MainContainer>
   )
 }

@@ -18,14 +18,27 @@ export const HeaderContainer = styled.header`
 
   @media ${device.laptopM} {
     min-width: 1106px;
+    padding: 2rem 6rem 2rem 14rem;
   }
 
   @media ${device.tablet} {
     min-width: 768px;
+    padding: 2rem 5rem 2rem 6rem;
+  }
+
+  @media ${device.tabletM} {
+    min-width: 550px;
+    padding: 2rem 0rem 2rem 6rem;
   }
 
   @media ${device.mobileL} {
-    min-height: 425px;
+    padding: 2rem 0rem 2rem 2rem;
+    min-width: 425px;
+  }
+
+  @media ${device.mobileM} {
+    padding: 2rem 0rem 2rem 2rem;
+    min-width: 375px;
   }
 `
 

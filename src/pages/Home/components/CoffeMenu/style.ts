@@ -1,10 +1,19 @@
 import styled from 'styled-components'
+import { device } from '../../../../styles/responsive'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 90rem;
   padding: 2rem 10rem 9.813rem 10rem;
+
+  @media ${device.laptopL} {
+    padding: 2rem 0rem 9.813rem 9rem;
+  }
+
+  @media ${device.laptopM} {
+    padding: 2rem 0rem 9.813rem 9rem;
+  }
 `
 
 export const HeaderMenu = styled.h2`

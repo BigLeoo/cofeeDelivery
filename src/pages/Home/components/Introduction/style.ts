@@ -1,15 +1,37 @@
 import styled from 'styled-components'
 import Background from '../../../../assets/Background.svg'
+import { device } from '../../../../styles/responsive'
 
 export const MainContainer = styled.main`
   padding: 5.875rem 10rem 5.875rem 10rem;
-  width: 90rem;
+  max-width: 90rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   background-image: url(${Background});
+
+  @media ${device.laptopM} {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5.875rem 10rem 3rem 10rem;
+  }
+
+  @media ${device.tablet} {
+    padding: 5.875rem 5rem 3rem 9rem;
+    align-items: start;
+  }
+
+  @media ${device.tabletM} {
+    padding: 5.875rem 0rem 3rem 5rem;
+    align-items: center;
+  }
+
+  @media ${device.tabletS} {
+    padding: 5.875rem 0rem 3rem 10rem;
+    align-items: center;
+  }
 `
 
 export const ArticleIntro = styled.article`
@@ -22,7 +44,16 @@ export const ArticleIntro = styled.article`
   font-size: 1.25rem;
   font-weight: 400;
   font-family: 'Roboto';
-  /* height: 7.75rem; */
+
+  @media ${device.tablet} {
+    /* margin-left: 2rem; */
+    max-width: 31rem;
+  }
+
+  @media ${device.tabletM} {
+    flex-direction: column;
+    margin-left: 5rem;
+  }
 `
 
 export const HeadIntro = styled.h1`
@@ -31,6 +62,10 @@ export const HeadIntro = styled.h1`
   font-style: normal;
   font-size: 3rem;
   line-height: 130%;
+
+  @media ${device.tablet} {
+    font-size: 2.5rem;
+  }
 `
 
 export const ArticleBulletPoints = styled.article`
@@ -44,6 +79,18 @@ export const ArticleBulletPoints = styled.article`
   font-weight: 400;
   gap: 1.25rem;
   font-family: 'Roboto';
+
+  @media ${device.tablet} {
+    /* background: blue; */
+    flex-direction: column;
+    /* margin-left: 2rem; */
+  }
+
+  @media ${device.tabletM} {
+    flex-direction: column;
+    margin-left: 5rem;
+    /* gap: 2rem; */
+  }
 `
 
 export const BulletPoints1 = styled.div`
@@ -90,4 +137,8 @@ export const CoffeIcon = styled(IconBulletPointContainer)`
 export const ImageCoffe = styled.img`
   width: 29.75rem;
   height: 22.5rem;
+
+  @media ${device.tablet} {
+    width: 27rem;
+  }
 `
