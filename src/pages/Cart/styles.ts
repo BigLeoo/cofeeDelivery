@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../styles/responsive'
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -6,6 +7,11 @@ export const ContentContainer = styled.div`
   gap: 2rem;
 
   margin-top: 2.5rem;
+
+  @media ${device.laptopM} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const AddresPaymantContainer = styled.div`
