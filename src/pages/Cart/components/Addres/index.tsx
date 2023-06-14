@@ -1,13 +1,16 @@
 import { MapPinLine } from 'phosphor-react'
 import {
   AddresContainer,
+  ContainerErroCity,
+  ContainerErroComplement,
+  ContainerErroNumber,
+  ContainerErroState,
   ContainerInput,
   ErrorMensage,
   InputCep,
   InputCity,
   InputComplement,
   InputContainer,
-  InputContainerErro,
   InputNeighborhood,
   InputNumber,
   InputState,
@@ -50,7 +53,7 @@ export function Addres() {
         )}
 
         <ContainerInput>
-          <InputContainerErro>
+          <ContainerErroNumber>
             <InputNumber
               type="number"
               placeholder="Número"
@@ -59,9 +62,9 @@ export function Addres() {
             {errors.number && (
               <ErrorMensage> Verifique se o número está correto </ErrorMensage>
             )}
-          </InputContainerErro>
+          </ContainerErroNumber>
 
-          <InputContainerErro>
+          <ContainerErroComplement>
             <InputComplement
               type="text"
               placeholder="Complemento"
@@ -72,11 +75,11 @@ export function Addres() {
                 O número de caracteres foi ultrapassado
               </ErrorMensage>
             )}
-          </InputContainerErro>
+          </ContainerErroComplement>
         </ContainerInput>
 
         <ContainerInput>
-          <InputContainerErro>
+          <ContainerErroNumber>
             <InputNeighborhood
               type="text"
               placeholder="Bairro"
@@ -85,21 +88,21 @@ export function Addres() {
             {errors.neighborhood && (
               <ErrorMensage> Verifique se o bairro está correto </ErrorMensage>
             )}
-          </InputContainerErro>
+          </ContainerErroNumber>
 
-          <InputContainerErro>
+          <ContainerErroCity>
             <InputCity type="text" placeholder="Cidade" {...register('city')} />
             {errors.city && (
               <ErrorMensage> Verifique se a cidade está correto </ErrorMensage>
             )}
-          </InputContainerErro>
+          </ContainerErroCity>
 
-          <InputContainerErro>
+          <ContainerErroState>
             <InputState type="text" placeholder="UF" {...register('state')} />
             {errors.state && (
               <ErrorMensage> Verifique se o estado está correto </ErrorMensage>
             )}
-          </InputContainerErro>
+          </ContainerErroState>
         </ContainerInput>
       </InputContainer>
     </AddresContainer>

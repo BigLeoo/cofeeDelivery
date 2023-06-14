@@ -28,4 +28,8 @@ export const Title = styled.h1`
   color: ${(props) => props.theme['base-subtitlie']};
 
   margin-bottom: 0.938rem;
+
+  @media ${device.tabletM} {
+    margin-left: 25px;
+  }
 `

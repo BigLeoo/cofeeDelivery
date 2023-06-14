@@ -18,7 +18,7 @@ export const HeaderContainer = styled.header`
 
   @media ${device.laptopM} {
     min-width: 1106px;
-    padding: 2rem 6rem 2rem 14rem;
+    padding: 2rem 14rem 2rem 14rem;
   }
 
   @media ${device.tablet} {
@@ -26,9 +26,14 @@ export const HeaderContainer = styled.header`
     padding: 2rem 5rem 2rem 6rem;
   }
 
+  @media ${device.tabletMM} {
+    min-width: 640px;
+    padding: 2rem 5rem 2rem 6rem;
+  }
+
   @media ${device.tabletM} {
     min-width: 550px;
-    padding: 2rem 0rem 2rem 6rem;
+    padding: 2rem 5rem 2rem 6rem;
   }
 
   @media ${device.mobileL} {

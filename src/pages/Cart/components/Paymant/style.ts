@@ -1,6 +1,7 @@
 /* eslint-disable dot-notation */
 
 import { styled } from 'styled-components'
+import { device } from '../../../../styles/responsive'
 
 export const PaymantContainer = styled.div`
   display: flex;
@@ -9,11 +10,19 @@ export const PaymantContainer = styled.div`
   gap: 2rem;
 
   padding: 2.5rem;
-  width: 40rem;
+  max-width: 40rem;
   height: 12.938rem;
   border-radius: 6px;
 
   background: ${(props) => props.theme['base-card']};
+
+  @media ${device.tabletMM} {
+    width: 35rem;
+  }
+
+  @media ${device.tabletM} {
+    width: 32.5rem;
+  }
 `
 
 export const HeaderContainer = styled.div`
@@ -62,7 +71,7 @@ export const ChoosePaymantButtonContainer = styled.div`
   align-items: center;
 
   gap: 0.75rem;
-  width: 35rem;
+  width: 100%;
   height: 3.188rem;
 `
 export const ChoosePaymantLabel = styled.label`
@@ -72,7 +81,8 @@ export const ChoosePaymantLabel = styled.label`
   padding: 1rem;
 
   gap: 0.75rem;
-  width: 11.167rem;
+  /* width: 11.167rem; */
+  width: 100%;
   height: 3.188rem;
 
   border-radius: 6px;

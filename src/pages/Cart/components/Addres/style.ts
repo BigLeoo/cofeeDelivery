@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../../../styles/responsive'
 
 export const AddresContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
@@ -17,6 +18,14 @@ export const AddresContainer = styled.div`
   align-items: flex-start;
 
   gap: 2rem;
+
+  @media ${device.tabletMM} {
+    width: 35rem;
+  }
+
+  @media ${device.tabletM} {
+    width: 32.5rem;
+  }
 `
 
 export const TitleContainer = styled.div`
@@ -45,7 +54,7 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* flex-wrap: wrap; */
+  width: 100%;
 
   gap: 1rem 0.75rem;
 `
@@ -64,38 +73,39 @@ export const Input = styled.input`
 `
 
 export const InputCep = styled(Input)`
-  width: 12.5rem;
+  width: 35.71%;
   appearance: none;
 `
 
 export const InputStreet = styled(Input)`
-  width: 35rem;
+  width: 100%;
 `
 
 export const InputNumber = styled(Input)`
-  width: 12.5rem;
+  width: 100%;
   appearance: none;
 `
 
 export const InputComplement = styled(Input)`
-  width: 21.75rem;
+  width: 100%;
 `
 
 export const InputNeighborhood = styled(Input)`
-  width: 12.5rem;
+  width: 100%;
 `
 
 export const InputCity = styled(Input)`
-  width: 17.25rem;
+  width: 100%;
 `
 
 export const InputState = styled(Input)`
-  width: 3.75rem;
+  width: 100%;
 `
 
 export const ContainerInput = styled.div`
   display: flex;
   gap: 0.75rem;
+  width: 100%;
 `
 
 export const ErrorMensage = styled.span`
@@ -108,4 +118,20 @@ export const InputContainerErro = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+`
+
+export const ContainerErroNumber = styled(InputContainerErro)`
+  width: 35.71%;
+`
+
+export const ContainerErroComplement = styled(InputContainerErro)`
+  width: 62.14%;
+`
+
+export const ContainerErroCity = styled(InputContainerErro)`
+  width: 49.28%;
+`
+
+export const ContainerErroState = styled(InputContainerErro)`
+  width: 10.71%;
 `
