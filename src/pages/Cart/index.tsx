@@ -1,16 +1,19 @@
-import { Addres } from './components/Addres'
+import { useContext } from 'react'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm, FormProvider } from 'react-hook-form'
+import { z, ZodType } from 'zod'
+
 import { CoffeCard } from './components/CoffeCard'
+import { Addres } from './components/Addres'
 import { Paymant } from './components/Paymant'
 import { AddresPaymantContainer, ContentContainer, Title } from './styles'
-import { useForm, FormProvider } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z, ZodType } from 'zod'
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
 import { CoffeesContext } from '../../context/Coffes'
 
 export function Cart() {
-  const { setOrderConfirmed, setCoffeesCart } = useContext(CoffeesContext)
+  const { setOrderConfirmed, setCoffeesCart, coffees, setCoffees } =
+    useContext(CoffeesContext)
 
   type FormData = {
     cep: number
@@ -41,7 +44,21 @@ export function Cart() {
   const navigate = useNavigate()
 
   function dataConfirmedOrderedPaymant(data: FormData) {
-    // console.log(data)
+    const copyCoffees = [...coffees]
+
+    const coffeAmountReset = copyCoffees.map((coffeeObject) => {
+      if (coffeeObject.amount > 0) {
+        return {
+          ...coffeeObject,
+          amount: (coffeeObject.amount = 0),
+        }
+      } else {
+        return coffeeObject
+      }
+    })
+
+    setCoffees(coffeAmountReset)
+
     setCoffeesCart([])
     setOrderConfirmed(data)
 

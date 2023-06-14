@@ -1,6 +1,7 @@
 /* eslint-disable dot-notation */
 
 import styled from 'styled-components'
+import { device } from '../../styles/responsive'
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -10,6 +11,10 @@ export const ContentContainer = styled.div`
   gap: 6.375rem;
 
   margin-top: 5rem;
+
+  @media ${device.laptopM} {
+    flex-direction: column;
+  }
 `
 
 export const TitleContainer = styled.div`
@@ -17,6 +22,10 @@ export const TitleContainer = styled.div`
   gap: 0.25rem;
   flex-direction: column;
   margin-bottom: 2.5rem;
+
+  @media ${device.tabletMM} {
+    width: 100%;
+  }
 `
 
 export const TitleConfirmedOrder = styled.h1`
@@ -37,6 +46,10 @@ export const SubTitleConfirmedOrder = styled.p`
   line-height: 1.625rem;
 
   color: ${(props) => props.theme['base-subtitlie']};
+
+  @media ${device.tabletMM} {
+    font-size: 1.2rem;
+  }
 `
 export const ImageInfoOrder = styled.img`
   width: 30.75rem;

@@ -23,17 +23,17 @@ export const HeaderContainer = styled.header`
 
   @media ${device.tablet} {
     min-width: 768px;
-    padding: 2rem 5rem 2rem 6rem;
+    padding: 2rem 5rem 2rem 5rem;
   }
 
   @media ${device.tabletMM} {
     min-width: 640px;
-    padding: 2rem 5rem 2rem 6rem;
+    padding: 2rem 5rem 2rem 5rem;
   }
 
   @media ${device.tabletM} {
     min-width: 550px;
-    padding: 2rem 5rem 2rem 6rem;
+    padding: 2rem 5rem 2rem 5rem;
   }
 
   @media ${device.mobileL} {

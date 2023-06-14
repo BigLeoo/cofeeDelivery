@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../../../styles/responsive'
 
 export const InfoContainer = styled.div`
   width: 35.125rem;
@@ -17,6 +18,10 @@ export const InfoContainer = styled.div`
     linear-gradient(to left, #8047f8, #dbac2c);
   background-origin: border-box;
   background-clip: content-box, border-box;
+
+  @media ${device.tabletMM} {
+    width: 100%;
+  }
 `
 
 const PinContainer = styled.div`

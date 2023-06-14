@@ -34,7 +34,6 @@ export function Coffe({
   coffeeName,
   coffeDescription,
   value,
-  amount,
 }: CoffeeProps) {
   const { setCoffeesCart, coffees, setCoffees } = useContext(CoffeesContext)
   const [amountOfCoffees, setAmountOfCoffees] = useState(0)
@@ -44,7 +43,7 @@ export function Coffe({
   }
 
   function decreaseAmount() {
-    if (!(amount === 0)) {
+    if (!(amountOfCoffees === 0)) {
       setAmountOfCoffees(amountOfCoffees - 1)
     }
   }
@@ -125,13 +124,8 @@ export function Coffe({
             onClick={additionAmount}
           />
         </AmountContainer>
-        <ShoppingCartContainer>
-          <ShoppingCart
-            weight="fill"
-            width={'1.375rem'}
-            height={'1.375rem'}
-            onClick={addCoffeeToCart}
-          />
+        <ShoppingCartContainer onClick={addCoffeeToCart}>
+          <ShoppingCart weight="fill" width={'1.375rem'} height={'1.375rem'} />
         </ShoppingCartContainer>
       </BuyContainer>
     </CoffeeContainer>
